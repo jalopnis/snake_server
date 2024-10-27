@@ -16,7 +16,7 @@ from collections import deque
 
 from snake_sim.snake_env import SnakeEnv
 from snake_sim.render.core import FrameBuilder
-from snake_sim.snakes.autoSnake4 import AutoSnake4
+from snake_sim.snakes.auto_snake import AutoSnake
 
 MAX_STREAMS = 5
 
@@ -116,7 +116,7 @@ def start_stream_run(conn, config):
     count = 0
     for snake_config in snake_defalut_config['snake_configs']:
         count += 1
-        env.add_snake(AutoSnake4(**snake_config['snake'], calc_timeout=calc_timeout), **snake_config['env'])
+        env.add_snake(AutoSnake(**snake_config['snake'], calc_timeout=calc_timeout), **snake_config['env'])
         if count == nr_of_snakes:
             break
     env.stream_run(conn,)
